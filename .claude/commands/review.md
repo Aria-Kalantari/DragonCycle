@@ -1,0 +1,1 @@
+Review the current diff against `SPEC.md` and `CLAUDE.md`. Look for scope creep, Souls-like shortcuts, animation-only hit logic, hard-coded species branches, missing body-damage consequences, unsafe Unreal patterns, and absent tests. Fix only clear defects.

@@ -1,0 +1,122 @@
+{
+  "id": "drake_prime_adult",
+  "morphotype": "drake",
+  "display_name": "Prime Adult Drake",
+  "life_stage": "prime_adult",
+  "experience": "seasoned",
+  "condition": 1.0,
+  "body_plan": {
+    "legs": 4,
+    "independent_wings": 2,
+    "wing_arms": 0,
+    "heads": 1,
+    "serpentine": false,
+    "neck_segments": 3
+  },
+  "locomotion": [
+    "ground",
+    "powered_flight",
+    "glide",
+    "climb"
+  ],
+  "combat_identity": "Heavy quadrupedal grappler. Wins on first secure contact and on bite-secured rotation; loses to sustained aerial harassment it cannot turn inside of.",
+  "body_parts": [
+    {
+      "id": "head",
+      "max_integrity": 120,
+      "armor": 0.35,
+      "break_threshold": 0.3
+    },
+    {
+      "id": "jaw",
+      "max_integrity": 95,
+      "armor": 0.22,
+      "break_threshold": 0.35
+    },
+    {
+      "id": "neck",
+      "max_integrity": 130,
+      "armor": 0.3,
+      "break_threshold": 0.32
+    },
+    {
+      "id": "torso",
+      "max_integrity": 300,
+      "armor": 0.45,
+      "break_threshold": 0.2
+    },
+    {
+      "id": "wing_left",
+      "max_integrity": 130,
+      "armor": 0.12,
+      "break_threshold": 0.45
+    },
+    {
+      "id": "wing_right",
+      "max_integrity": 130,
+      "armor": 0.12,
+      "break_threshold": 0.45
+    },
+    {
+      "id": "forelimb_left",
+      "max_integrity": 150,
+      "armor": 0.3,
+      "break_threshold": 0.35
+    },
+    {
+      "id": "forelimb_right",
+      "max_integrity": 150,
+      "armor": 0.3,
+      "break_threshold": 0.35
+    },
+    {
+      "id": "hindlimb_left",
+      "max_integrity": 180,
+      "armor": 0.33,
+      "break_threshold": 0.35
+    },
+    {
+      "id": "hindlimb_right",
+      "max_integrity": 180,
+      "armor": 0.33,
+      "break_threshold": 0.35
+    },
+    {
+      "id": "tail",
+      "max_integrity": 140,
+      "armor": 0.28,
+      "break_threshold": 0.4
+    }
+  ],
+  "resources": {
+    "health": 1000,
+    "stamina": 100,
+    "heat_capacity": 100,
+    "breath_reserve": 100,
+    "balance": 120
+  },
+  "flight_envelope": {
+    "mass_kg": 6000,
+    "wing_area_m2": 110,
+    "launch_mode": "quadrupedal",
+    "max_turn_rate_deg_s": 45,
+    "stall_speed_ms": 22
+  },
+  "ai_weights": {
+    "ground_aggression": 0.75,
+    "air_aggression": 0.45,
+    "grapple": 0.85,
+    "injury_protection": 0.6,
+    "rhp_self_bias": 0.1,
+    "resource_value": 0.7,
+    "persistence": 0.75,
+    "display_preference": 0.55,
+    "terrain_exploitation": 0.45,
+    "mutual_assessment_weight": 0.3,
+    "skill": 0.5
+  },
+  "terrain_affinity": {
+    "caldera": 0.6,
+    "forest": -0.3
+  }
+}

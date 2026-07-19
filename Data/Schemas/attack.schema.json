@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "attack.schema.json",
+  "title": "Dragon attack definition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "morphotype", "ability_tag", "required_parts", "base_damage", "balance_damage", "stamina_cost", "heat_cost", "active_window_seconds", "commit_class"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9_]+$"},
+    "morphotype": {"enum": ["drake", "wyvern", "longneck"]},
+    "ability_tag": {"type": "string", "pattern": "^Ability\\."},
+    "required_parts": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": {"enum": ["head", "jaw", "neck", "torso", "wing_left", "wing_right", "forelimb_left", "forelimb_right", "hindlimb_left", "hindlimb_right", "tail"]}
+    },
+    "base_damage": {"type": "number", "minimum": 0},
+    "balance_damage": {"type": "number", "minimum": 0},
+    "stamina_cost": {"type": "number", "minimum": 0},
+    "heat_cost": {"type": "number", "minimum": 0},
+    "active_window_seconds": {"type": "number", "exclusiveMinimum": 0, "maximum": 3},
+    "commit_class": {
+      "enum": ["probe", "standard", "committed"],
+      "description": "Drives recovery length and punish window. Committed attacks must be readable before the active window opens."
+    },
+    "requires_state": {"type": "array", "uniqueItems": true, "items": {"enum": ["grounded", "airborne", "diving", "grappled", "bite_secured", "anchored"]}},
+    "grants_state": {"type": "array", "uniqueItems": true, "items": {"enum": ["bite_secured", "anchored", "airborne", "recovering"]}},
+    "min_entry_speed_ms": {"type": "number", "minimum": 0},
+    "notes": {"type": "string"}
+  }
+}

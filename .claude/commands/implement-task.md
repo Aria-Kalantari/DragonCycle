@@ -1,0 +1,1 @@
+Implement the first unblocked task in `TASKS.md` unless an explicit task ID is supplied. Follow `CLAUDE.md`. Keep scope minimal, run focused validation, update documentation, and report editor-only steps separately.

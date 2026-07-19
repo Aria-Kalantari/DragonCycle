@@ -1,0 +1,110 @@
+{
+  "id": "wyvern_prime_adult",
+  "morphotype": "wyvern",
+  "display_name": "Prime Adult Wyvern",
+  "life_stage": "prime_adult",
+  "experience": "veteran",
+  "condition": 1.0,
+  "body_plan": {
+    "legs": 2,
+    "independent_wings": 0,
+    "wing_arms": 2,
+    "heads": 1,
+    "serpentine": false,
+    "neck_segments": 3
+  },
+  "locomotion": [
+    "ground",
+    "powered_flight",
+    "glide",
+    "climb"
+  ],
+  "combat_identity": "Aerial interception predator. Buys kills with altitude and angle, not curvature; a missed stoop is its most punishable state and it knows it.",
+  "body_parts": [
+    {
+      "id": "head",
+      "max_integrity": 95,
+      "armor": 0.25,
+      "break_threshold": 0.3
+    },
+    {
+      "id": "jaw",
+      "max_integrity": 80,
+      "armor": 0.18,
+      "break_threshold": 0.35
+    },
+    {
+      "id": "neck",
+      "max_integrity": 100,
+      "armor": 0.24,
+      "break_threshold": 0.32
+    },
+    {
+      "id": "torso",
+      "max_integrity": 220,
+      "armor": 0.3,
+      "break_threshold": 0.22
+    },
+    {
+      "id": "wing_left",
+      "max_integrity": 145,
+      "armor": 0.15,
+      "break_threshold": 0.48
+    },
+    {
+      "id": "wing_right",
+      "max_integrity": 145,
+      "armor": 0.15,
+      "break_threshold": 0.48
+    },
+    {
+      "id": "hindlimb_left",
+      "max_integrity": 155,
+      "armor": 0.27,
+      "break_threshold": 0.38
+    },
+    {
+      "id": "hindlimb_right",
+      "max_integrity": 155,
+      "armor": 0.27,
+      "break_threshold": 0.38
+    },
+    {
+      "id": "tail",
+      "max_integrity": 125,
+      "armor": 0.24,
+      "break_threshold": 0.4
+    }
+  ],
+  "resources": {
+    "health": 780,
+    "stamina": 120,
+    "heat_capacity": 80,
+    "breath_reserve": 40,
+    "balance": 85
+  },
+  "flight_envelope": {
+    "mass_kg": 2200,
+    "wing_area_m2": 95,
+    "launch_mode": "bipedal",
+    "max_turn_rate_deg_s": 95,
+    "stall_speed_ms": 14
+  },
+  "ai_weights": {
+    "ground_aggression": 0.2,
+    "air_aggression": 0.95,
+    "grapple": 0.25,
+    "injury_protection": 0.82,
+    "rhp_self_bias": -0.05,
+    "resource_value": 0.4,
+    "persistence": 0.4,
+    "display_preference": 0.25,
+    "terrain_exploitation": 0.8,
+    "mutual_assessment_weight": 0.55,
+    "skill": 0.7
+  },
+  "terrain_affinity": {
+    "caldera": 0.8,
+    "forest": -0.6
+  }
+}

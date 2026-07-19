@@ -1,0 +1,111 @@
+{
+  "id": "longneck_prime_adult",
+  "morphotype": "longneck",
+  "display_name": "Prime Adult Arch-Serpent",
+  "life_stage": "prime_adult",
+  "experience": "seasoned",
+  "condition": 1.0,
+  "body_plan": {
+    "legs": 0,
+    "independent_wings": 2,
+    "wing_arms": 0,
+    "heads": 1,
+    "serpentine": true,
+    "neck_segments": 9
+  },
+  "locomotion": [
+    "ground",
+    "powered_flight",
+    "glide",
+    "coil",
+    "climb"
+  ],
+  "combat_identity": "Range-control duelist. Threatens around cover with off-axis bites and coil drags; jammed at the neck base or forced into a square body collision, it has nothing.",
+  "body_parts": [
+    {
+      "id": "head",
+      "max_integrity": 90,
+      "armor": 0.24,
+      "break_threshold": 0.3
+    },
+    {
+      "id": "jaw",
+      "max_integrity": 85,
+      "armor": 0.2,
+      "break_threshold": 0.35
+    },
+    {
+      "id": "neck",
+      "max_integrity": 210,
+      "armor": 0.16,
+      "break_threshold": 0.5
+    },
+    {
+      "id": "torso",
+      "max_integrity": 240,
+      "armor": 0.34,
+      "break_threshold": 0.22
+    },
+    {
+      "id": "wing_left",
+      "max_integrity": 110,
+      "armor": 0.13,
+      "break_threshold": 0.46
+    },
+    {
+      "id": "wing_right",
+      "max_integrity": 110,
+      "armor": 0.13,
+      "break_threshold": 0.46
+    },
+    {
+      "id": "forelimb_left",
+      "max_integrity": 140,
+      "armor": 0.31,
+      "break_threshold": 0.34
+    },
+    {
+      "id": "forelimb_right",
+      "max_integrity": 140,
+      "armor": 0.31,
+      "break_threshold": 0.34
+    },
+    {
+      "id": "tail",
+      "max_integrity": 190,
+      "armor": 0.29,
+      "break_threshold": 0.42
+    }
+  ],
+  "resources": {
+    "health": 860,
+    "stamina": 110,
+    "heat_capacity": 90,
+    "breath_reserve": 70,
+    "balance": 95
+  },
+  "flight_envelope": {
+    "mass_kg": 3400,
+    "wing_area_m2": 78,
+    "launch_mode": "coil_spring",
+    "max_turn_rate_deg_s": 62,
+    "stall_speed_ms": 18
+  },
+  "ai_weights": {
+    "ground_aggression": 0.55,
+    "air_aggression": 0.5,
+    "grapple": 0.7,
+    "injury_protection": 0.7,
+    "rhp_self_bias": 0.0,
+    "resource_value": 0.85,
+    "persistence": 0.6,
+    "display_preference": 0.7,
+    "terrain_exploitation": 0.9,
+    "mutual_assessment_weight": 0.35,
+    "skill": 0.55
+  },
+  "terrain_affinity": {
+    "caldera": 0.1,
+    "forest": 0.9
+  }
+}

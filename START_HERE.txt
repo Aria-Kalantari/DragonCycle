@@ -1,0 +1,10 @@
+1. Read SPEC.md, then Docs/RESEARCH_BASIS.md for what changed in the July 2026 rebase.
+2. Read Docs/BIOMECHANICS.md. It is the constraint contract the roster is built inside.
+3. Install/open Unreal Engine 5.8 and generate project files for DragonCycle.uproject.
+4. Read Docs/UNREAL_EDITOR_CHECKLIST.md.
+5. From this folder run Claude Code and paste Prompts/Claude/FIRST_RUN.md.
+6. Use Higgsfield prompts only after reading Docs/ART_PIPELINE_HIGGSFIELD.md.
+
+Slice 1 is drake vs wyvern in the Basalt Caldera. The arch-serpent and the
+forest arena are slice 2. Before planning against any schedule, read
+Docs/PROTOTYPE_PLAN.md - the 12-week figure assumes a staffed team.

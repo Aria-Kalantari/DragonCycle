@@ -1,0 +1,33 @@
+# Unreal generated
+Binaries/
+DerivedDataCache/
+Intermediate/
+Saved/
+.vs/
+.vscode/
+*.sln
+*.VC.db
+*.VC.opendb
+
+# Build artifacts
+Build/Receipts/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+.pytest_cache/
+.venv/
+
+# Generated AI media (reference staging)
+Generated/Concepts/*
+!Generated/Concepts/.gitkeep
+Generated/Previs/*
+!Generated/Previs/.gitkeep
+
+# Local Claude preferences and credentials
+CLAUDE.local.md
+.env
+.env.*

@@ -1,0 +1,1 @@
+Read `SPEC.md`, `TASKS.md`, and the relevant files under `Docs/`. Build a plan for the first unblocked task only. Include affected files, Unreal editor steps, tests, debug visualization, risks, and the smallest acceptance demo. Do not implement yet.

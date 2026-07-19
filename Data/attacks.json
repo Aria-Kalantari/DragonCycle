@@ -1,0 +1,277 @@
+[
+  {
+    "id": "drake_bite",
+    "morphotype": "drake",
+    "ability_tag": "Ability.Attack.Bite",
+    "required_parts": [
+      "jaw",
+      "neck"
+    ],
+    "base_damage": 85,
+    "balance_damage": 20,
+    "stamina_cost": 12,
+    "heat_cost": 0,
+    "active_window_seconds": 0.28,
+    "commit_class": "standard",
+    "grants_state": [
+      "bite_secured"
+    ],
+    "notes": "Mass scales the confirm, not the swing. A clean bite secures a grip rather than simply subtracting health."
+  },
+  {
+    "id": "drake_secured_twist",
+    "morphotype": "drake",
+    "ability_tag": "Ability.Attack.SecuredTwist",
+    "required_parts": [
+      "jaw",
+      "neck",
+      "torso",
+      "hindlimb_left",
+      "hindlimb_right"
+    ],
+    "base_damage": 140,
+    "balance_damage": 70,
+    "stamina_cost": 34,
+    "heat_cost": 4,
+    "active_window_seconds": 1.1,
+    "commit_class": "committed",
+    "requires_state": [
+      "bite_secured"
+    ],
+    "notes": "Rotational follow-through on a secured bite. Shear scales with body mass and rotation rate, so this is the drake's damage ceiling and its longest punish window."
+  },
+  {
+    "id": "drake_foreclaw",
+    "morphotype": "drake",
+    "ability_tag": "Ability.Attack.Claw",
+    "required_parts": [
+      "forelimb_left"
+    ],
+    "base_damage": 48,
+    "balance_damage": 30,
+    "stamina_cost": 9,
+    "heat_cost": 0,
+    "active_window_seconds": 0.22,
+    "commit_class": "probe",
+    "notes": "Fast enough to contest space without surrendering stance."
+  },
+  {
+    "id": "drake_tail_sweep",
+    "morphotype": "drake",
+    "ability_tag": "Ability.Attack.Tail",
+    "required_parts": [
+      "tail"
+    ],
+    "base_damage": 55,
+    "balance_damage": 45,
+    "stamina_cost": 16,
+    "heat_cost": 0,
+    "active_window_seconds": 0.38,
+    "commit_class": "standard",
+    "notes": "Control attack. Power scales with turn rate and tail integrity."
+  },
+  {
+    "id": "drake_shoulder_ram",
+    "morphotype": "drake",
+    "ability_tag": "Ability.Attack.Ram",
+    "required_parts": [
+      "torso",
+      "hindlimb_left",
+      "hindlimb_right"
+    ],
+    "base_damage": 70,
+    "balance_damage": 90,
+    "stamina_cost": 26,
+    "heat_cost": 0,
+    "active_window_seconds": 0.45,
+    "commit_class": "committed",
+    "min_entry_speed_ms": 6.0,
+    "notes": "Requires real closing velocity. Denied outright below the entry-speed floor rather than scaled down."
+  },
+  {
+    "id": "drake_combustion_breath",
+    "morphotype": "drake",
+    "ability_tag": "Ability.Attack.Breath",
+    "required_parts": [
+      "jaw",
+      "neck",
+      "torso"
+    ],
+    "base_damage": 24,
+    "balance_damage": 4,
+    "stamina_cost": 8,
+    "heat_cost": 22,
+    "active_window_seconds": 1.2,
+    "commit_class": "committed",
+    "notes": "Applied in pulses. Consumes breath reserve at runtime; neck integrity limits the sweep arc."
+  },
+  {
+    "id": "wyvern_dive_rake",
+    "morphotype": "wyvern",
+    "ability_tag": "Ability.Attack.DiveRake",
+    "required_parts": [
+      "hindlimb_left",
+      "hindlimb_right",
+      "wing_left",
+      "wing_right"
+    ],
+    "base_damage": 95,
+    "balance_damage": 55,
+    "stamina_cost": 20,
+    "heat_cost": 0,
+    "active_window_seconds": 0.24,
+    "commit_class": "committed",
+    "requires_state": [
+      "diving"
+    ],
+    "min_entry_speed_ms": 18.0,
+    "grants_state": [
+      "recovering"
+    ],
+    "notes": "Interception, not tracking. Line is committed before the window opens and cannot be re-aimed mid-stoop; the overshoot is the defender's opening."
+  },
+  {
+    "id": "wyvern_wing_buffet",
+    "morphotype": "wyvern",
+    "ability_tag": "Ability.Attack.WingBuffet",
+    "required_parts": [
+      "wing_left",
+      "wing_right"
+    ],
+    "base_damage": 22,
+    "balance_damage": 65,
+    "stamina_cost": 14,
+    "heat_cost": 0,
+    "active_window_seconds": 0.4,
+    "commit_class": "standard",
+    "notes": "Low damage, high balance pressure. Creates the disengage window rather than the kill."
+  },
+  {
+    "id": "wyvern_snap_bite",
+    "morphotype": "wyvern",
+    "ability_tag": "Ability.Attack.Bite",
+    "required_parts": [
+      "jaw",
+      "neck"
+    ],
+    "base_damage": 46,
+    "balance_damage": 12,
+    "stamina_cost": 8,
+    "heat_cost": 0,
+    "active_window_seconds": 0.18,
+    "commit_class": "probe",
+    "notes": "No secured grip. The wyvern cannot convert a bite into leverage the way a drake can."
+  },
+  {
+    "id": "wyvern_tail_strike",
+    "morphotype": "wyvern",
+    "ability_tag": "Ability.Attack.Tail",
+    "required_parts": [
+      "tail"
+    ],
+    "base_damage": 52,
+    "balance_damage": 25,
+    "stamina_cost": 12,
+    "heat_cost": 0,
+    "active_window_seconds": 0.26,
+    "commit_class": "standard",
+    "notes": "Stinger or cutting blade is still an open decision. Damage mode differs; reach does not."
+  },
+  {
+    "id": "longneck_side_entry_bite",
+    "morphotype": "longneck",
+    "ability_tag": "Ability.Attack.Bite",
+    "required_parts": [
+      "jaw",
+      "neck"
+    ],
+    "base_damage": 62,
+    "balance_damage": 18,
+    "stamina_cost": 11,
+    "heat_cost": 0,
+    "active_window_seconds": 0.3,
+    "commit_class": "standard",
+    "grants_state": [
+      "bite_secured"
+    ],
+    "notes": "Enters off the centreline. Reach comes from neck segments, so neck impairment shortens the threat envelope before it reduces damage."
+  },
+  {
+    "id": "longneck_neck_feint",
+    "morphotype": "longneck",
+    "ability_tag": "Ability.Attack.Feint",
+    "required_parts": [
+      "neck"
+    ],
+    "base_damage": 0,
+    "balance_damage": 8,
+    "stamina_cost": 5,
+    "heat_cost": 0,
+    "active_window_seconds": 0.2,
+    "commit_class": "probe",
+    "notes": "No contact. Exists to bait a brace or a commit, and is only meaningful against an opponent that reads intent."
+  },
+  {
+    "id": "longneck_coil_drag",
+    "morphotype": "longneck",
+    "ability_tag": "Ability.Attack.CoilDrag",
+    "required_parts": [
+      "torso",
+      "tail",
+      "forelimb_left",
+      "forelimb_right"
+    ],
+    "base_damage": 58,
+    "balance_damage": 110,
+    "stamina_cost": 30,
+    "heat_cost": 0,
+    "active_window_seconds": 0.85,
+    "commit_class": "committed",
+    "requires_state": [
+      "anchored"
+    ],
+    "notes": "Displacement over damage. Drags a heavier opponent off a shelf or into cover it cannot fight in."
+  },
+  {
+    "id": "longneck_tail_anchor_pivot",
+    "morphotype": "longneck",
+    "ability_tag": "Ability.Movement.AnchorPivot",
+    "required_parts": [
+      "tail",
+      "forelimb_left",
+      "forelimb_right"
+    ],
+    "base_damage": 0,
+    "balance_damage": 0,
+    "stamina_cost": 10,
+    "heat_cost": 0,
+    "active_window_seconds": 0.5,
+    "commit_class": "standard",
+    "grants_state": [
+      "anchored"
+    ],
+    "notes": "Sets a terrain anchor. Turns the arena into leverage and is the precondition for coil drag."
+  },
+  {
+    "id": "longneck_neck_dispatch",
+    "morphotype": "longneck",
+    "ability_tag": "Ability.Attack.NeckDispatch",
+    "required_parts": [
+      "jaw",
+      "neck",
+      "forelimb_left",
+      "forelimb_right"
+    ],
+    "base_damage": 125,
+    "balance_damage": 30,
+    "stamina_cost": 28,
+    "heat_cost": 0,
+    "active_window_seconds": 0.95,
+    "commit_class": "committed",
+    "requires_state": [
+      "bite_secured",
+      "anchored"
+    ],
+    "notes": "Neck-and-forelimb powered kill on a restrained target. The arch-serpent's jaw is weak by design; cervical musculature supplies the force, and only once the target cannot struggle. Its damage ceiling, reached by restraint rather than rotation."
+  }
+]

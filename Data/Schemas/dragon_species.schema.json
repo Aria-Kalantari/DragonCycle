@@ -1,0 +1,340 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "dragon_species.schema.json",
+  "title": "Dragon morphotype definition",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "morphotype",
+    "display_name",
+    "life_stage",
+    "experience",
+    "body_plan",
+    "locomotion",
+    "combat_identity",
+    "body_parts",
+    "resources",
+    "flight_envelope",
+    "ai_weights",
+    "terrain_affinity"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9_]+$"
+    },
+    "morphotype": {
+      "enum": [
+        "drake",
+        "wyvern",
+        "longneck"
+      ]
+    },
+    "display_name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "life_stage": {
+      "enum": [
+        "hatchling",
+        "juvenile",
+        "prime_adult",
+        "elder",
+        "ancient"
+      ]
+    },
+    "experience": {
+      "enum": [
+        "naive",
+        "seasoned",
+        "veteran",
+        "master",
+        "legendary"
+      ]
+    },
+    "condition": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Third aging axis. 1.0 = uninjured and well-fed; degrades independently of life stage."
+    },
+    "body_plan": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "legs",
+        "independent_wings",
+        "wing_arms",
+        "heads",
+        "serpentine",
+        "neck_segments"
+      ],
+      "properties": {
+        "legs": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4
+        },
+        "independent_wings": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "wing_arms": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 2
+        },
+        "heads": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 1
+        },
+        "serpentine": {
+          "type": "boolean"
+        },
+        "neck_segments": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 12,
+          "description": "Drives reach, off-axis bite arc, and retraction inertia."
+        }
+      }
+    },
+    "locomotion": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "ground",
+          "powered_flight",
+          "glide",
+          "burrow",
+          "swim",
+          "climb",
+          "coil"
+        ]
+      }
+    },
+    "combat_identity": {
+      "type": "string",
+      "minLength": 1
+    },
+    "body_parts": {
+      "type": "array",
+      "minItems": 4,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "max_integrity",
+          "armor",
+          "break_threshold"
+        ],
+        "properties": {
+          "id": {
+            "enum": [
+              "head",
+              "jaw",
+              "neck",
+              "torso",
+              "wing_left",
+              "wing_right",
+              "forelimb_left",
+              "forelimb_right",
+              "hindlimb_left",
+              "hindlimb_right",
+              "tail"
+            ]
+          },
+          "max_integrity": {
+            "type": "number",
+            "exclusiveMinimum": 0
+          },
+          "armor": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "break_threshold": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        }
+      }
+    },
+    "resources": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "health",
+        "stamina",
+        "heat_capacity",
+        "breath_reserve",
+        "balance"
+      ],
+      "properties": {
+        "health": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "stamina": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "heat_capacity": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "breath_reserve": {
+          "type": "number",
+          "minimum": 0
+        },
+        "balance": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        }
+      }
+    },
+    "flight_envelope": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "mass_kg",
+        "wing_area_m2",
+        "launch_mode",
+        "max_turn_rate_deg_s",
+        "stall_speed_ms"
+      ],
+      "properties": {
+        "mass_kg": {
+          "type": "number",
+          "exclusiveMinimum": 0
+        },
+        "wing_area_m2": {
+          "type": "number",
+          "minimum": 0
+        },
+        "launch_mode": {
+          "enum": [
+            "quadrupedal",
+            "bipedal",
+            "coil_spring",
+            "none"
+          ]
+        },
+        "max_turn_rate_deg_s": {
+          "type": "number",
+          "minimum": 0
+        },
+        "stall_speed_ms": {
+          "type": "number",
+          "minimum": 0
+        }
+      }
+    },
+    "ai_weights": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ground_aggression",
+        "air_aggression",
+        "grapple",
+        "injury_protection",
+        "rhp_self_bias",
+        "resource_value",
+        "persistence",
+        "display_preference",
+        "terrain_exploitation",
+        "mutual_assessment_weight",
+        "skill"
+      ],
+      "properties": {
+        "ground_aggression": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "air_aggression": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "grapple": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "injury_protection": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "rhp_self_bias": {
+          "type": "number",
+          "minimum": -0.5,
+          "maximum": 0.5,
+          "description": "Assessment error. Positive overestimates own fighting ability; naive individuals skew positive."
+        },
+        "resource_value": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Subjective value of what is being contested. Raises the cost threshold before disengaging."
+        },
+        "persistence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Willingness to continue an unfavourable exchange. With resource_value, sets the accumulated-cost threshold at which the individual disengages."
+        },
+        "display_preference": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "terrain_exploitation": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "mutual_assessment_weight": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "How far opponent-reading may move the disengage threshold. Self-assessment and accumulated cost drive withdrawal by default; mutual assessment is a modifier that rises with experience."
+        },
+        "skill": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1,
+          "description": "Accuracy, tactic selection, decision speed. A component of fighting ability distinct from raw capability."
+        }
+      }
+    },
+    "terrain_affinity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "caldera",
+        "forest"
+      ],
+      "properties": {
+        "caldera": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1
+        },
+        "forest": {
+          "type": "number",
+          "minimum": -1,
+          "maximum": 1
+        }
+      }
+    }
+  }
+}
