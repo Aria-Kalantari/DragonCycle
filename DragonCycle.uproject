@@ -11,37 +11,15 @@
 		}
 	],
 	"Plugins": [
-		{
-			"Name": "GameplayAbilities",
-			"Enabled": true
-		},
-		{
-			"Name": "EnhancedInput",
-			"Enabled": true
-		},
-		{
-			"Name": "Niagara",
-			"Enabled": true
-		},
-		{
-			"Name": "StateTree",
-			"Enabled": true
-		},
-		{
-			"Name": "GameplayStateTree",
-			"Enabled": true
-		},
-		{
-			"Name": "MotionWarping",
-			"Enabled": true
-		},
-		{
-			"Name": "ControlRig",
-			"Enabled": true
-		},
-		{
-			"Name": "IKRig",
-			"Enabled": true
-		},
-		{
-	
+		{ "Name": "GameplayAbilities", "Enabled": true },
+		{ "Name": "EnhancedInput", "Enabled": true },
+		{ "Name": "Niagara", "Enabled": true },
+		{ "Name": "StateTree", "Enabled": true },
+		{ "Name": "GameplayStateTree", "Enabled": true },
+		{ "Name": "MotionWarping", "Enabled": true },
+		{ "Name": "ControlRig", "Enabled": true },
+		{ "Name": "IKRig", "Enabled": true },
+		{ "Name": "ModelContextProtocol", "Enabled": true },
+		{ "Name": "AllToolsets", "Enabled": true }
+	]
+}
