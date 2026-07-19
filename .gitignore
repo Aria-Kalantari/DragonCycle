@@ -8,6 +8,8 @@ Saved/
 *.sln
 *.VC.db
 *.VC.opendb
+.ignore
+DragonCycle.code-workspace
 
 # Build artifacts
 Build/Receipts/
