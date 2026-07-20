@@ -6,6 +6,10 @@ public class DragonCycle : ModuleRules
     {
         PCHUsage = PCHUsageMode.UseExplicitOrSharedPCHs;
 
+        // Flat module layout (no Public/ folder): export the module root so
+        // dependents like DragonCycleEditor can include these headers.
+        PublicIncludePaths.Add(ModuleDirectory);
+
         PublicDependencyModuleNames.AddRange(new[]
         {
             "Core",
