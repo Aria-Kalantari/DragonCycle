@@ -9,5 +9,6 @@ public class DragonCycleEditorTarget : TargetRules
         DefaultBuildSettings = BuildSettingsVersion.V7;
         IncludeOrderVersion = EngineIncludeOrderVersion.Latest;
         ExtraModuleNames.Add("DragonCycle");
+        ExtraModuleNames.Add("DragonCycleEditor");
     }
 }

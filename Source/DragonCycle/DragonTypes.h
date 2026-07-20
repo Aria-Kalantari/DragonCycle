@@ -88,6 +88,85 @@ struct FDragonBodyPartProfile
     float ImpairmentThreshold = 0.4f;
 };
 
+/**
+ * Limb topology from the schema's body_plan block. Counts are canonical per
+ * morphotype and enforced by Tools/validate_data.py; they live here so the
+ * imported asset, not the JSON, is what runtime systems read (ADR-006).
+ */
+USTRUCT(BlueprintType)
+struct FDragonBodyPlan
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Body", meta=(ClampMin="0", ClampMax="4"))
+    int32 Legs = 4;
+
+    /** Wings that are not limbs. Drake and longneck pattern. */
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Body", meta=(ClampMin="0", ClampMax="2"))
+    int32 IndependentWings = 2;
+
+    /** Forelimbs that are the wings. Wyvern pattern; excludes separate forelimb parts. */
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Body", meta=(ClampMin="0", ClampMax="2"))
+    int32 WingArms = 0;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Body", meta=(ClampMin="1", ClampMax="1"))
+    int32 Heads = 1;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Body")
+    bool bSerpentine = false;
+};
+
+/** Starting resource pools. Consumed by the attribute set at spawn, not live state. */
+USTRUCT(BlueprintType)
+struct FDragonResourceBaseline
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Resources", meta=(ClampMin="1.0"))
+    float Health = 1000.0f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Resources", meta=(ClampMin="1.0"))
+    float Stamina = 100.0f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Resources", meta=(ClampMin="1.0"))
+    float HeatCapacity = 100.0f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Resources", meta=(ClampMin="0.0"))
+    float BreathReserve = 100.0f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="Resources", meta=(ClampMin="1.0"))
+    float Balance = 100.0f;
+};
+
+/**
+ * Species instinct weights for utility scoring, 0-1. The assessment-related
+ * weights (self bias, resource value, persistence, mutual-assessment cap,
+ * skill) live in FDragonAssessment instead; these are tactical preferences.
+ */
+USTRUCT(BlueprintType)
+struct FDragonAIPersonality
+{
+    GENERATED_BODY()
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="AI", meta=(ClampMin="0.0", ClampMax="1.0"))
+    float GroundAggression = 0.5f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="AI", meta=(ClampMin="0.0", ClampMax="1.0"))
+    float AirAggression = 0.5f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="AI", meta=(ClampMin="0.0", ClampMax="1.0"))
+    float Grapple = 0.5f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="AI", meta=(ClampMin="0.0", ClampMax="1.0"))
+    float InjuryProtection = 0.5f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="AI", meta=(ClampMin="0.0", ClampMax="1.0"))
+    float DisplayPreference = 0.5f;
+
+    UPROPERTY(EditAnywhere, BlueprintReadOnly, Category="AI", meta=(ClampMin="0.0", ClampMax="1.0"))
+    float TerrainExploitation = 0.5f;
+};
+
 USTRUCT(BlueprintType)
 struct FDragonBodyPartState
 {
