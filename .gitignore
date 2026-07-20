@@ -33,3 +33,5 @@ Generated/Previs/*
 CLAUDE.local.md
 .env
 .env.*
+.claude/settings.local.json
+.claude/settings.local.json.tmp*
