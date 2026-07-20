@@ -8,10 +8,10 @@ slice 2. See `Docs/PROTOTYPE_PLAN.md` for phase order and what to cut first.
 
 ## Milestone 0 — Repository, data spine, and editor bootstrap
 
-- [ ] M0.1 Generate project files and compile the empty `DragonCycle` module in Unreal Engine 5.8.
-- [ ] M0.2 Enable GameplayAbilities, GameplayTags, GameplayTasks, EnhancedInput, Niagara, StateTree, GameplayStateTree, MotionWarping, ControlRig, IK Rig, and EQS plugins.
-- [ ] M0.3 Create `L_BasaltCaldera_Greybox`, `GM_DragonCycle`, and `BP_Drake_Player`.
-- [ ] M0.4 Create Enhanced Input assets listed in `Docs/UNREAL_EDITOR_CHECKLIST.md`.
+- [x] M0.1 Generate project files and compile the empty `DragonCycle` module in Unreal Engine 5.8.
+- [x] M0.2 Enable GameplayAbilities, GameplayTags, GameplayTasks, EnhancedInput, Niagara, StateTree, GameplayStateTree, MotionWarping, ControlRig, IK Rig, and EQS plugins.
+- [x] M0.3 Create `L_BasaltCaldera_Greybox`, `GM_DragonCycle`, and `BP_Drake_Player` (via `Tools/editor_bootstrap_m03.py`). `BP_Drake_Player.SpeciesData` stays unassigned until the M0.6 importer exists — do not hand-author a `DA_`.
+- [x] M0.4 Create Enhanced Input assets listed in `Docs/UNREAL_EDITOR_CHECKLIST.md` (via `Tools/editor_bootstrap_m04.py`). Triggers (hold vs press) left default; M1 ability wiring decides them.
 - [ ] M0.5 Import a temporary skeletal proxy with wing, jaw, neck, tail, forelimb, and hind-limb bones.
 - [ ] M0.6 **Write the JSON to `UDragonSpeciesDataAsset` importer (ADR-006).** Blocks all body-state work — until it exists, anatomy has two sources of truth.
 - [ ] M0.7 Implement the `CombatEvent` struct and round-summary writer from `Docs/TELEMETRY.md`. Lands before the first attack, not after.

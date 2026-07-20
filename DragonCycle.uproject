@@ -20,6 +20,8 @@
 		{ "Name": "ControlRig", "Enabled": true },
 		{ "Name": "IKRig", "Enabled": true },
 		{ "Name": "ModelContextProtocol", "Enabled": true },
-		{ "Name": "AllToolsets", "Enabled": true }
+		{ "Name": "AllToolsets", "Enabled": true },
+		{ "Name": "PythonScriptPlugin", "Enabled": true },
+		{ "Name": "AndroidFileServer", "Enabled": false }
 	]
 }
