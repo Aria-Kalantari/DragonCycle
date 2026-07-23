@@ -19,7 +19,8 @@ public class DragonCycle : ModuleRules
             "EnhancedInput",
             "GameplayAbilities",
             "GameplayTags",
-            "GameplayTasks"
+            "GameplayTasks",
+            "Json"
         });
 
         PrivateDependencyModuleNames.AddRange(new[]

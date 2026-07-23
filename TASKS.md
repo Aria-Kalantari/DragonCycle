@@ -14,7 +14,7 @@ slice 2. See `Docs/PROTOTYPE_PLAN.md` for phase order and what to cut first.
 - [x] M0.4 Create Enhanced Input assets listed in `Docs/UNREAL_EDITOR_CHECKLIST.md` (via `Tools/editor_bootstrap_m04.py`). Triggers (hold vs press) left default; M1 ability wiring decides them.
 - [ ] M0.5 Import a temporary skeletal proxy with wing, jaw, neck, tail, forelimb, and hind-limb bones.
 - [x] M0.6 **Write the JSON to `UDragonSpeciesDataAsset` importer (ADR-006).** `UDragonSpeciesImportCommandlet` in the `DragonCycleEditor` module: `-run=DragonSpeciesImport`. Generic over the schema, fails non-zero on any error, skips rewriting unchanged assets so reruns produce no LFS churn. Closed-set drift is covered by `Tests/test_closed_set.py`.
-- [ ] M0.7 Implement the `CombatEvent` struct and round-summary writer from `Docs/TELEMETRY.md`. Lands before the first attack, not after.
+- [x] M0.7 Implement the `CombatEvent` struct and round-summary writer from `Docs/TELEMETRY.md`. Lands before the first attack, not after. `FDragonCombatEvent` (full schema), `FDragonRoundSummary` + `FDragonRoundSummaryWriter` (JSONL), the single-source `UDragonTelemetrySubsystem`, and the F1-F10 report (`FDragonFalsificationReport`) all in the runtime module. Aggregation math covered by `DragonTelemetryTests.cpp` (automation) and the doc/threshold contract by `Tests/test_telemetry_contract.py`. No editor assets. No emission wiring yet — that arrives with the M2 damage pipeline.
 
 ## Milestone 1 — Heavy locomotion and gated flight
 
