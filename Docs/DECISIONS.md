@@ -106,6 +106,17 @@ Reptile performance senescence is unstudied, and the instinct to wait for reptil
 
 **Watch item:** the no-re-aim rule is the likeliest thing in this document to feel bad in play, because it removes control at the highest-adrenaline moment. When that surfaces, the temptation will be to hunt for evidence permitting a small mid-dive correction. The honest position is that no evidence ever forbade one. Changing it is a design decision requiring an ADR, not a research question.
 
+## ADR-015 — Canonical morphotype skeletons; art is swappable, systems bind to the skeleton
+
+**Status:** Accepted
+**Context:** Slice-1 fighters use purchased placeholder meshes that are not final art (Protofactor Mountain Dragon as the drake, Protofactor Wyvern as the wyvern — a coherent, same-studio, same-rig pair chosen over a higher-fidelity but mismatched cinematic asset). The player drake in particular will likely be replaced later by a bespoke or higher-fidelity model, and no marketplace carries a hero-tier quadruped drake to match a cinematic wyvern, so a final art pass means commissioned assets regardless of what is bought now. Without a rule, every system that touches the character — hit zones (M2.2), impairment consequences (M3.x), Control Rig, the animation blueprint, GAS montages, sockets, physics assets — risks binding to a specific vendor's skeleton. That would turn a later art swap into a rebuild instead of a re-skin, and would quietly re-introduce the morphotype-specific coupling ADR-005 and the CLAUDE.md engineering rules forbid.
+
+**Decision:** Systems bind to a canonical per-morphotype skeleton, never to a vendor asset. Define one canonical drake skeleton and one canonical wyvern skeleton (arch-serpent later) whose bone hierarchy realises the closed `EDragonBodyPart` set — head, jaw, neck (a segmented chain sized from `NeckSegments`), torso, wing_left/right, forelimb_left/right, hindlimb_left/right, tail — under a fixed, documented bone-naming convention. Every purchased or generated mesh is retargeted onto the canonical skeleton with Unreal's IK Retargeter. Hit-zone components, Control Rig, animation blueprint, montages, sockets, and physics assets are authored once against the canonical skeleton. Placeholder art (Protofactor now) and any future cinematic or bespoke asset are interchangeable skins over the same skeleton. This is the Mannequin retarget-hub pattern, applied per morphotype.
+
+**Consequences:** Upgrading art later costs a bounded tech-art pass — re-skin, retarget the animation set, re-hook rig/physics for the new mesh — not a re-authoring of movement, combat, damage, AI, or telemetry, none of which ever referenced the mesh. The wyvern's four limbs and the drake's six are expressed as skeleton differences, not code branches. Buying the cheap coherent Protofactor pair now is therefore the economical choice: the money to spend once is on final assets built to the canonical skeleton, not on an interim cinematic asset that would itself be replaced. The one real cost is the neck — a mesh whose neck bone count differs from the morphotype's `NeckSegments` must have its chain reconciled to the canonical skeleton before retargeting.
+
+**Watch item:** the arch-serpent's nine-segment neck (S2.1) is the stress test for this rule. Its canonical skeleton must exist before its consequence systems (S2.2 neck reach) are built, or those systems will accrete against whatever placeholder arrived first — exactly the coupling this ADR exists to prevent.
+
 ## Pending template
 
 ### ADR-XXX — Title
